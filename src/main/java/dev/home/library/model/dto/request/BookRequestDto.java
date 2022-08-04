@@ -1,4 +1,4 @@
-package library.model.dto.request;
+package dev.home.library.model.dto.request;
 
 import java.util.List;
 import lombok.Getter;

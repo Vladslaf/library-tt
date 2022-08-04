@@ -1,10 +1,10 @@
-package library.service.mapper;
+package dev.home.library.service.mapper;
 
-import library.model.Author;
-import library.model.Book;
-import library.model.dto.request.BookRequestDto;
-import library.model.dto.response.BookResponseDto;
-import library.service.AuthorService;
+import dev.home.library.model.Author;
+import dev.home.library.model.Book;
+import dev.home.library.model.dto.request.BookRequestDto;
+import dev.home.library.model.dto.response.BookResponseDto;
+import dev.home.library.service.AuthorService;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 

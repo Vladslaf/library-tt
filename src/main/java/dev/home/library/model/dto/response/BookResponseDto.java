@@ -1,8 +1,7 @@
-package library.model.dto.response;
-
-import lombok.Data;
+package dev.home.library.model.dto.response;
 
 import java.util.List;
+import lombok.Data;
 
 @Data
 public class BookResponseDto {

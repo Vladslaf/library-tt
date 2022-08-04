@@ -1,4 +1,4 @@
-package library.model;
+package dev.home.library.model;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -10,19 +10,17 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
-@ToString
 @Entity
 @Table(name = "authors")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "author_name")
+    @Column(name = "author_name", nullable = false)
     private String authorName;
     @Column(name = "birth_date")
     private LocalDate birthDate;
