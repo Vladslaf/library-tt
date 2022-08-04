@@ -1,4 +1,4 @@
-package library.model;
+package dev.home.library.model;
 
 import java.util.List;
 import javax.persistence.Column;
@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -24,8 +23,9 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "book_name")
+    @Column(name = "book_name", nullable = false)
     private String bookName;
+    @Column(nullable = false)
     @ManyToMany
     @JoinTable(name = "books_authors",
             joinColumns = @JoinColumn(name = "book_id"),

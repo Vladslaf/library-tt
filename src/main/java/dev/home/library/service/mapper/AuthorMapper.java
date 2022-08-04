@@ -1,8 +1,8 @@
-package library.service.mapper;
+package dev.home.library.service.mapper;
 
-import library.model.Author;
-import library.model.dto.request.AuthorRequestDto;
-import library.model.dto.response.AuthorResponseDto;
+import dev.home.library.model.Author;
+import dev.home.library.model.dto.request.AuthorRequestDto;
+import dev.home.library.model.dto.response.AuthorResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
