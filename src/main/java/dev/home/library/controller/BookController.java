@@ -3,14 +3,14 @@ package dev.home.library.controller;
 import dev.home.library.model.Book;
 import dev.home.library.model.dto.request.BookRequestDto;
 import dev.home.library.model.dto.response.BookResponseDto;
+import dev.home.library.model.dto.response.BookSuccessRateResponseDto;
 import dev.home.library.service.BookService;
 import dev.home.library.service.mapper.RequestDtoMapper;
 import dev.home.library.service.mapper.ResponseDtoMapper;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -81,7 +81,8 @@ public class BookController {
 
     @GetMapping("/all-by-most-sold/by-author")
     public List<BookResponseDto> findAllBySoldAmountAndAuthorName(
-            @RequestParam @ApiParam(value = "any part of the author name") String wildcardAuthorName) {
+            @RequestParam @ApiParam(value = "any part of the author name")
+            String wildcardAuthorName) {
         return bookService.findAllBySoldAmountAndAuthorNamePart(wildcardAuthorName)
                 .stream()
                 .map(bookResponseDtoMapper::mapToDto)
@@ -90,19 +91,18 @@ public class BookController {
 
     @GetMapping("/all-by-most-published/by-author")
     public List<BookResponseDto> findAllByPublishedAmountAndAuthorName(
-            @RequestParam @ApiParam(value = "any part of the author name") String wildcardAuthorName) {
+            @RequestParam @ApiParam(value = "any part of the author name")
+            String wildcardAuthorName) {
         return bookService.findAllByPublishedAmountAndAuthorNamePart(wildcardAuthorName)
                 .stream()
                 .map(bookResponseDtoMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/all-by-success/by-author")
-    public List<BookResponseDto> findAllBySuccessRateAndAuthorName(
-            @RequestParam @ApiParam(value = "any part of the author name") String wildcardAuthorName) {
-        return bookService.findAllBySuccessRateAndAuthorNamePart(wildcardAuthorName)
-                .stream()
-                .map(bookResponseDtoMapper::mapToDto)
-                .collect(Collectors.toList());
+    @GetMapping("/all-by-success-rate/by-author")
+    public List<BookSuccessRateResponseDto> findAllByAuthorsEndsWithIgnoreCaseBySuccessRate(
+            @RequestParam @ApiParam(value = "any part of the author name")
+            String wildcardAuthorName) {
+        return bookService.findAllBySuccessRateAndAuthorNamePart(wildcardAuthorName);
     }
 }

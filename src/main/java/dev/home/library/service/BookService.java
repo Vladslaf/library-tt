@@ -1,6 +1,7 @@
 package dev.home.library.service;
 
 import dev.home.library.model.Book;
+import dev.home.library.model.dto.response.BookSuccessRateResponseDto;
 import java.util.List;
 
 public interface BookService {
@@ -20,6 +21,5 @@ public interface BookService {
 
     List<Book> findAllByPublishedAmountAndAuthorNamePart(String partName);
 
-    List<Book> findAllBySuccessRateAndAuthorNamePart(String partName);
-
+    List<BookSuccessRateResponseDto> findAllBySuccessRateAndAuthorNamePart(String partName);
 }
