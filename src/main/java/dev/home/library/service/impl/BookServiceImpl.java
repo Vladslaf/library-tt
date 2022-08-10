@@ -1,9 +1,11 @@
 package dev.home.library.service.impl;
 
 import dev.home.library.model.Book;
+import dev.home.library.model.dto.response.BookSuccessRateResponseDto;
 import dev.home.library.repository.BookRepository;
 import dev.home.library.service.BookService;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -55,7 +57,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAllBySuccessRateAndAuthorNamePart(String partName) {
-        return bookRepository.findAllBySuccessRateAndAuthorNamePart(partName);
+    public List<BookSuccessRateResponseDto> findAllBySuccessRateAndAuthorNamePart(String partName) {
+        return bookRepository.findAllBySuccessRateAndAuthorNamePart(partName)
+                .orElseThrow(NoSuchElementException::new);
     }
 }

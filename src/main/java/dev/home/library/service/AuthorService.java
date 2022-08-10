@@ -1,6 +1,7 @@
 package dev.home.library.service;
 
 import dev.home.library.model.Author;
+import dev.home.library.model.dto.response.AuthorSuccessRateResponseDto;
 
 public interface AuthorService {
     Author add(Author author);
@@ -11,5 +12,5 @@ public interface AuthorService {
 
     Author get(Long id);
 
-    Author findTopBySuccessAuthorRate();
+    AuthorSuccessRateResponseDto findTopBySuccessAuthorRate();
 }

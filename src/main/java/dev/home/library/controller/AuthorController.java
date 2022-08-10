@@ -3,6 +3,7 @@ package dev.home.library.controller;
 import dev.home.library.model.Author;
 import dev.home.library.model.dto.request.AuthorRequestDto;
 import dev.home.library.model.dto.response.AuthorResponseDto;
+import dev.home.library.model.dto.response.AuthorSuccessRateResponseDto;
 import dev.home.library.service.AuthorService;
 import dev.home.library.service.mapper.RequestDtoMapper;
 import dev.home.library.service.mapper.ResponseDtoMapper;
@@ -56,8 +57,7 @@ public class AuthorController {
 
     @GetMapping("/top-author")
     @ApiOperation(value = "show most successful author")
-    public AuthorResponseDto findTopBySuccessAuthorRate() {
-        Author author = authorService.findTopBySuccessAuthorRate();
-        return authorResponseDtoMapper.mapToDto(author);
+    public AuthorSuccessRateResponseDto findTopBySuccessAuthorRate() {
+        return authorService.findTopBySuccessAuthorRate();
     }
 }
