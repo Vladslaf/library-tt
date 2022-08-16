@@ -1,9 +1,13 @@
 package dev.home.library.model.dto.response;
 
 import java.time.LocalDate;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AuthorSuccessRateResponseDto {
     private Long id;
     private String authorName;
@@ -11,17 +15,4 @@ public class AuthorSuccessRateResponseDto {
     private String phone;
     private String email;
     private long successRate;
-
-    public AuthorSuccessRateResponseDto() {
-    }
-
-    public AuthorSuccessRateResponseDto(Long id, String authorName, LocalDate birthDate,
-                                        String phone, String email, long successRate) {
-        this.id = id;
-        this.authorName = authorName;
-        this.birthDate = birthDate;
-        this.phone = phone;
-        this.email = email;
-        this.successRate = successRate;
-    }
 }

@@ -5,7 +5,6 @@ import dev.home.library.model.dto.response.BookSuccessRateResponseDto;
 import dev.home.library.repository.BookRepository;
 import dev.home.library.service.BookService;
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -58,7 +57,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookSuccessRateResponseDto> findAllBySuccessRateAndAuthorNamePart(String partName) {
-        return bookRepository.findAllBySuccessRateAndAuthorNamePart(partName)
-                .orElseThrow(NoSuchElementException::new);
+        return bookRepository.findAllBySuccessRateAndAuthorNamePart(partName).orElseThrow(
+                () -> new RuntimeException("No such author by part of the name : " + partName));
     }
 }
