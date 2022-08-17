@@ -4,7 +4,6 @@ import dev.home.library.model.Author;
 import dev.home.library.model.dto.response.AuthorSuccessRateResponseDto;
 import dev.home.library.repository.AuthorRepository;
 import dev.home.library.service.AuthorService;
-import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -39,7 +38,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public AuthorSuccessRateResponseDto findTopBySuccessAuthorRate() {
         return authorRepository.findFirstBySuccessAuthorRate().get(0)
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new RuntimeException("No author found."));
     }
 
 }

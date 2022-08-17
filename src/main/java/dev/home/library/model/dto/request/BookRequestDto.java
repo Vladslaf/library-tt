@@ -1,11 +1,13 @@
 package dev.home.library.model.dto.request;
 
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookRequestDto {
     private String bookName;
     private List<Long> authorIds;
