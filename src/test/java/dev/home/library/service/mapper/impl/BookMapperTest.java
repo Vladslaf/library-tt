@@ -44,7 +44,9 @@ class BookMapperTest {
         BookResponseDto actual = bookMapper.mapToDto(book);
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(book.getId(), actual.getId());
-        Assertions.assertEquals(book.getAuthors().stream().map(Author::getId).collect(Collectors.toList()),
+        Assertions.assertEquals(book.getAuthors().stream()
+                        .map(Author::getId)
+                        .collect(Collectors.toList()),
                 actual.getAuthorIds());
         Assertions.assertEquals(book.getId(), actual.getId());
         Assertions.assertEquals(book.getPublishedAmount(), actual.getPublishedAmount());

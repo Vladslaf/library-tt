@@ -44,8 +44,9 @@ class AuthorControllerTest {
 
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new AuthorRequestDto(authorToSave.getAuthorName(), authorToSave.getBirthDate(),
-                        authorToSave.getPhone(), authorToSave.getEmail()))
+                .body(new AuthorRequestDto(authorToSave.getAuthorName(),
+                        authorToSave.getBirthDate(), authorToSave.getPhone(),
+                        authorToSave.getEmail()))
                 .when()
                 .post("/authors")
                 .then()
@@ -65,8 +66,9 @@ class AuthorControllerTest {
         Mockito.when(authorService.update(authorToUpdate)).thenReturn(authorToUpdate);
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
-                .body(new AuthorRequestDto(authorToUpdate.getAuthorName(), authorToUpdate.getBirthDate(),
-                        authorToUpdate.getPhone(), authorToUpdate.getEmail()))
+                .body(new AuthorRequestDto(authorToUpdate.getAuthorName(),
+                        authorToUpdate.getBirthDate(), authorToUpdate.getPhone(),
+                        authorToUpdate.getEmail()))
                 .when()
                 .put("/authors/" + 1L)
                 .then()
@@ -81,8 +83,6 @@ class AuthorControllerTest {
 
     @Test
     void delete_ok() {
-        Author authorToUpdate = new Author(1L, "Mark", LocalDate.of(1987, Month.AUGUST, 5),
-                "06315948457", "a@test.ua");
         RestAssuredMockMvc.given()
                 .contentType(ContentType.JSON)
                 .when()

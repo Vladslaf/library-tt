@@ -1,10 +1,7 @@
 package dev.home.library.service.impl;
 
-import dev.home.library.model.Author;
 import dev.home.library.repository.AuthorRepository;
 import dev.home.library.service.AuthorService;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
